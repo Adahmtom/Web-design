@@ -41,6 +41,30 @@ const projects = [
     accent: "#16A07A",
     bg: "#06231C",
   },
+  {
+    client: "IDEA eLearning",
+    domain: "ideaelearning.learnworlds.com",
+    url: "https://ideaelearning.learnworlds.com/home",
+    type: "Online Learning Platform",
+    headline: "A polished platform for professional courses",
+    result: "Editorial learning experience for 12,000+ learners",
+    tags: ["Custom Design", "Course Platform", "Responsive"],
+    img: "/work/ideaelearning.jpg",
+    accent: "#7C5CCB",
+    bg: "#16122A",
+  },
+  {
+    client: "Saint Tracy",
+    domain: "sainttracy.com",
+    url: "https://sainttracy.com/",
+    type: "Luxury E-Commerce",
+    headline: "A premium storefront for fine jewelry",
+    result: "Conversion-focused store for diamond & gold rings",
+    tags: ["E-Commerce", "Brand Identity", "Custom Design"],
+    img: "/work/sainttracy.jpg",
+    accent: "#B57BB0",
+    bg: "#190F1E",
+  },
 ];
 
 type Project = typeof projects[0];
