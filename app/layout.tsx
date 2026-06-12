@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s · Sitetact",
   },
   description:
-    "Custom websites that convert. Sitetact designs and builds high-performance, conversion-focused sites from scratch — no templates, live in 2–4 weeks.",
+    "Custom websites that convert. Sitetact designs and builds high-performance, conversion-focused sites from scratch — no templates, live in 1–10 days.",
   keywords: [
     "website design agency", "custom web development", "conversion-focused websites",
     "Next.js development", "small business website", "web design Canada", "Sitetact",
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     siteName: "Sitetact",
     title: "Sitetact — Custom Website Design & Development Agency",
     description:
-      "94% of first impressions are design-related. Sitetact builds custom, conversion-focused websites from scratch — live in 2–4 weeks.",
+      "94% of first impressions are design-related. Sitetact builds custom, conversion-focused websites from scratch — live in 1–10 days.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Sitetact — Custom Website Design & Development" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sitetact — Custom Website Design & Development Agency",
-    description: "Custom, conversion-focused websites built from scratch. Live in 2–4 weeks.",
+    description: "Custom, conversion-focused websites built from scratch. Live in 1–10 days.",
     images: ["/opengraph-image"],
   },
   category: "technology",

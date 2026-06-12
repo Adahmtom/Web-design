@@ -311,7 +311,7 @@ export default function Hero() {
           }}
         >
           <div style={{ fontSize: 10, color: "var(--brass)", fontWeight: 700, marginBottom: 4, letterSpacing: "0.14em", textTransform: "uppercase" }}>DELIVERED IN</div>
-          <div className="display" style={{ fontSize: 24, fontWeight: 900, letterSpacing: "-0.04em" }}>2–4 weeks</div>
+          <div className="display" style={{ fontSize: 24, fontWeight: 900, letterSpacing: "-0.04em" }}>1–10 days</div>
         </motion.div>
         </div>
       </motion.div>

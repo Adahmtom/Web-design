@@ -5,25 +5,25 @@ import { motion, useInView } from "framer-motion";
 const steps = [
   {
     phase: "Discovery",
-    duration: "Day 1–2",
+    duration: "Day 1",
     desc: "A 60-minute deep dive into your business, audience, and goals. We come prepared with competitor research and initial observations.",
     icon: "01",
   },
   {
     phase: "Design",
-    duration: "Day 3–7",
+    duration: "Days 2–4",
     desc: "You receive a full Figma prototype — not wireframes, not mood boards. A real, interactive design you can click through and share with your team.",
     icon: "02",
   },
   {
     phase: "Build",
-    duration: "Day 8–21",
+    duration: "Days 5–8",
     desc: "We code in Next.js with TypeScript. Daily progress updates. You can watch your site take shape in a private staging environment.",
     icon: "03",
   },
   {
     phase: "Launch",
-    duration: "Day 22–28",
+    duration: "Days 9–10",
     desc: "SEO audit, performance testing, cross-browser QA. We deploy to Vercel and hand you the keys — plus 30 days of free support.",
     icon: "04",
   },
@@ -145,7 +145,7 @@ export default function Process() {
           <div>
             <div style={{ fontSize: 11, color: "var(--brass)", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 8 }}>Ready when you are</div>
             <p className="display" style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 800, color: "var(--cream)", letterSpacing: "-0.03em" }}>
-              Your site could be live in 4 weeks.
+              Your site could be live in 10 days.
             </p>
           </div>
           <a href="#waitlist" style={{

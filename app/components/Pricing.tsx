@@ -47,7 +47,7 @@ const plans = [
       "E-commerce or SaaS build",
       "Custom API integrations",
       "Multi-role access control",
-      "Priority builds (< 3 weeks)",
+      "Priority builds (1–10 days)",
       "60-day dedicated support",
     ],
     cta: "Let's talk",

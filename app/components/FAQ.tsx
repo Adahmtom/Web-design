@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "How long does a project take?",
-    a: "Most sites go from kickoff to live in 2–4 weeks. You'll see a first prototype within about 48 hours of the strategy call, then we iterate from there. Larger sites take a little longer, and we'll give you a clear timeline before we start.",
+    a: "Most sites go from kickoff to live in 1–10 days. You'll see a first prototype within about 48 hours of the strategy call, then we iterate from there. Larger sites take a little longer, and we'll give you a clear timeline before we start.",
   },
   {
     q: "How much does a website cost?",

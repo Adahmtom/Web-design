@@ -36,7 +36,7 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 24, color: "#3A3A3A" }}>
-          <div>Custom-built · Conversion-focused · Live in 2–4 weeks</div>
+          <div>Custom-built · Conversion-focused · Live in 1–10 days</div>
           <div style={{ color: "#9B8B73" }}>sitetact.com</div>
         </div>
       </div>
