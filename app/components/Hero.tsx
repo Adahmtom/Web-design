@@ -150,69 +150,139 @@ export default function Hero() {
           padding: "88px 80px 88px 24px", position: "relative",
         }} className="hero-right"
       >
-        {/* Browser window */}
+        {/* SaaS product dashboard mockup */}
+        <div style={{ position: "relative", width: "100%", maxWidth: 520 }}>
         <div style={{
-          width: "100%", maxWidth: 500,
-          background: "#fff", borderRadius: 14,
-          boxShadow: "0 48px 96px rgba(13,13,13,0.14), 0 8px 24px rgba(13,13,13,0.07)",
+          width: "100%",
+          background: "#fff", borderRadius: 16,
+          boxShadow: "0 48px 96px rgba(13,13,13,0.16), 0 8px 24px rgba(13,13,13,0.07)",
           overflow: "hidden", position: "relative", zIndex: 2,
           border: "1px solid var(--border)",
         }}>
-          {/* Chrome bar */}
+          {/* App top bar */}
           <div style={{
-            background: "#EDEBE6", padding: "10px 16px",
-            display: "flex", alignItems: "center", gap: 10,
-            borderBottom: "1px solid var(--border)",
+            display: "flex", alignItems: "center", gap: 12,
+            padding: "13px 16px", borderBottom: "1px solid var(--border)",
+            background: "#fff",
           }}>
-            <div style={{ display: "flex", gap: 6 }}>
-              {["#FF5F57", "#FEBC2E", "#28C840"].map(c => (
-                <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
-              ))}
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <div style={{ width: 20, height: 20, borderRadius: 6, background: "var(--ink)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: 8, height: 8, borderRadius: 2, background: "var(--brass)" }} />
+              </div>
+              <span className="display" style={{ fontSize: 13, fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em" }}>Brio Analytics</span>
             </div>
             <div style={{
-              flex: 1, background: "#fff", borderRadius: 6,
-              padding: "5px 12px", fontSize: 11, color: "var(--muted)",
-              fontFamily: "monospace", border: "1px solid var(--border)",
+              flex: 1, background: "var(--surface)", borderRadius: 7,
+              padding: "6px 12px", fontSize: 11, color: "var(--muted)",
+              border: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 7,
             }}>
-              {typed}<span style={{ opacity: cursor ? 1 : 0, color: "var(--brass)" }}>|</span>
+              <span style={{ width: 9, height: 9, borderRadius: "50%", border: "1.5px solid var(--muted)", display: "inline-block", flexShrink: 0 }} />
+              <span style={{ fontFamily: "monospace" }}>{typed || "Search…"}<span style={{ opacity: cursor && typed ? 1 : 0, color: "var(--brass)" }}>|</span></span>
             </div>
+            <div style={{ width: 24, height: 24, borderRadius: "50%", background: "linear-gradient(135deg, var(--brass), #B08D52)", flexShrink: 0 }} />
           </div>
 
-          {/* Mockup content */}
-          <div style={{ padding: 20, background: "var(--surface)" }}>
-            <div style={{
-              background: "var(--ink)", borderRadius: 10,
-              padding: "22px 20px", marginBottom: 12,
-            }}>
-              <div style={{ display: "flex", gap: 8, marginBottom: 12, alignItems: "center" }}>
-                <div style={{ background: "var(--brass)", height: 4, width: 90, borderRadius: 3 }} />
-                <div style={{ background: "rgba(255,255,255,0.1)", height: 4, flex: 1, borderRadius: 3 }} />
-              </div>
-              <div style={{ background: "rgba(255,255,255,0.12)", height: 12, width: "74%", borderRadius: 3, marginBottom: 7 }} />
-              <div style={{ background: "rgba(255,255,255,0.07)", height: 9, width: "52%", borderRadius: 3, marginBottom: 18 }} />
-              <div style={{ display: "flex", gap: 8 }}>
-                <div style={{ background: "var(--brass)", padding: "6px 14px", borderRadius: 5, fontSize: 10, color: "var(--ink)", fontWeight: 700 }}>Get started →</div>
-                <div style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.15)", padding: "6px 14px", borderRadius: 5, fontSize: 10, color: "rgba(255,255,255,0.35)" }}>Learn more</div>
-              </div>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 12 }}>
-              {["#E8E3D8", "#D4C9B4", "var(--brass-light)"].map((c, i) => (
-                <div key={i} style={{ background: c, borderRadius: 8, padding: 12, height: 64 }}>
-                  <div style={{ background: "rgba(0,0,0,0.12)", height: 5, width: "60%", borderRadius: 2, marginBottom: 5 }} />
-                  <div style={{ background: "rgba(0,0,0,0.07)", height: 4, width: "80%", borderRadius: 2 }} />
+          <div style={{ display: "flex", background: "var(--surface)" }}>
+            {/* Sidebar */}
+            <div style={{ width: 116, padding: "16px 12px", borderRight: "1px solid var(--border)", display: "flex", flexDirection: "column", gap: 4 }} className="dash-sidebar">
+              {[
+                { label: "Overview", active: true },
+                { label: "Pages", active: false },
+                { label: "Audience", active: false },
+                { label: "Reports", active: false },
+                { label: "Settings", active: false },
+              ].map(item => (
+                <div key={item.label} style={{
+                  display: "flex", alignItems: "center", gap: 8,
+                  padding: "7px 9px", borderRadius: 7,
+                  background: item.active ? "var(--ink)" : "transparent",
+                }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: 2, flexShrink: 0,
+                    background: item.active ? "var(--brass)" : "var(--border)",
+                  }} />
+                  <span style={{
+                    fontSize: 11, fontWeight: item.active ? 700 : 500,
+                    color: item.active ? "var(--cream)" : "var(--muted)",
+                  }}>{item.label}</span>
                 </div>
               ))}
             </div>
 
-            {[["78%", "52%"], ["62%", "42%"], ["48%", "32%"]].map((w, i) => (
-              <div key={i} style={{ marginBottom: 8 }}>
-                <div style={{ background: "var(--border)", height: 7, width: w[0], borderRadius: 3, marginBottom: 4 }} />
-                <div style={{ background: "var(--border)", height: 5, width: w[1], borderRadius: 3, opacity: 0.5 }} />
+            {/* Main panel */}
+            <div style={{ flex: 1, padding: "16px 16px 18px" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+                <span className="display" style={{ fontSize: 14, fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em" }}>Overview</span>
+                <span style={{ fontSize: 10, fontWeight: 600, color: "var(--muted)", background: "#fff", border: "1px solid var(--border)", borderRadius: 100, padding: "3px 10px" }}>Last 30 days</span>
               </div>
-            ))}
+
+              {/* Metric cards */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 14 }}>
+                {[
+                  { label: "Revenue", value: "$48.2k", delta: "+12%" },
+                  { label: "Visitors", value: "12.8k", delta: "+8%" },
+                  { label: "Conv.", value: "4.7%", delta: "+0.9%" },
+                ].map((m, i) => (
+                  <motion.div
+                    key={m.label}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 + i * 0.1, ease: [0.22, 1, 0.36, 1] as any }}
+                    style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: 9, padding: "10px 11px" }}
+                  >
+                    <div style={{ fontSize: 9, color: "var(--muted)", fontWeight: 600, marginBottom: 5, textTransform: "uppercase", letterSpacing: "0.06em" }}>{m.label}</div>
+                    <div className="display" style={{ fontSize: 17, fontWeight: 900, color: "var(--ink)", letterSpacing: "-0.03em", lineHeight: 1 }}>{m.value}</div>
+                    <div style={{ fontSize: 9, fontWeight: 700, color: "#3E8E5A", marginTop: 4, display: "flex", alignItems: "center", gap: 3 }}>
+                      <span style={{ fontSize: 8 }}>▲</span>{m.delta}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Chart card */}
+              <div style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: 9, padding: "12px 13px" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "var(--ink)" }}>Traffic</span>
+                  <span style={{ fontSize: 9, color: "var(--brass)", fontWeight: 700 }}>● Organic</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-end", gap: 6, height: 60 }}>
+                  {[42, 58, 36, 70, 54, 84, 64, 96].map((h, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ height: 0 }}
+                      animate={{ height: `${h}%` }}
+                      transition={{ duration: 0.7, delay: 0.8 + i * 0.07, ease: [0.22, 1, 0.36, 1] as any }}
+                      style={{
+                        flex: 1, borderRadius: "3px 3px 0 0",
+                        background: i === 7
+                          ? "linear-gradient(180deg, var(--brass), #B08D52)"
+                          : "var(--brass-light, #E0D2B6)",
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        {/* Floating "live visitors" pill */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.05, ease: [0.22, 1, 0.36, 1] as any }}
+          style={{
+            position: "absolute", top: -16, right: -14,
+            background: "#fff", color: "var(--ink)",
+            borderRadius: 100, padding: "8px 14px",
+            boxShadow: "0 16px 40px rgba(13,13,13,0.16)",
+            zIndex: 3, border: "1px solid var(--border)",
+            display: "flex", alignItems: "center", gap: 8,
+          }}
+        >
+          <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#3E8E5A", display: "inline-block", boxShadow: "0 0 0 3px rgba(62,142,90,0.18)" }} />
+          <span style={{ fontSize: 12, fontWeight: 700 }}>248 live visitors</span>
+        </motion.div>
 
         {/* Floating delivery badge */}
         <motion.div
@@ -220,16 +290,17 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.9, ease: [0.22, 1, 0.36, 1] as any }}
           style={{
-            position: "absolute", bottom: "13%", left: "2%",
+            position: "absolute", bottom: -22, left: -18,
             background: "var(--ink)", color: "var(--cream)",
-            borderRadius: 12, padding: "14px 20px",
-            boxShadow: "0 20px 48px rgba(0,0,0,0.24)",
+            borderRadius: 12, padding: "13px 18px",
+            boxShadow: "0 20px 48px rgba(0,0,0,0.26)",
             zIndex: 3, border: "1px solid rgba(255,255,255,0.06)",
           }}
         >
           <div style={{ fontSize: 10, color: "var(--brass)", fontWeight: 700, marginBottom: 4, letterSpacing: "0.14em", textTransform: "uppercase" }}>DELIVERED IN</div>
           <div className="display" style={{ fontSize: 24, fontWeight: 900, letterSpacing: "-0.04em" }}>2–4 weeks</div>
         </motion.div>
+        </div>
       </motion.div>
     </section>
   );
