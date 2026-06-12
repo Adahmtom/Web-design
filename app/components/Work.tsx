@@ -215,7 +215,7 @@ export default function Work() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(340px, 100%), 1fr))",
+          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
           gap: 24,
         }} className="work-grid">
           {projects.map((p, i) => (
