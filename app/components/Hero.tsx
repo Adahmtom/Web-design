@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { AetherFlowBackground } from "@/components/ui/aether-flow-hero";
 
-const TYPED_URL = "ourbrio.com/your-brand";
+const TYPED_URL = "sitetact.com/your-brand";
 
 const up = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -73,7 +73,7 @@ export default function Hero() {
           textTransform: "uppercase", color: "var(--brass)", marginBottom: 32,
         }}>
           <span style={{ width: 28, height: 1, background: "var(--brass)", display: "inline-block" }} />
-          OurBrio Agency · Web Design
+          Sitetact Agency · Web Design
         </motion.div>
 
         <motion.h1 {...up(0.2)} className="display" style={{
@@ -182,7 +182,7 @@ export default function Hero() {
               <div style={{ width: 20, height: 20, borderRadius: 6, background: "var(--ink)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: 8, height: 8, borderRadius: 2, background: "var(--brass)" }} />
               </div>
-              <span className="display" style={{ fontSize: 13, fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em" }}>Brio Analytics</span>
+              <span className="display" style={{ fontSize: 13, fontWeight: 800, color: "var(--ink)", letterSpacing: "-0.02em" }}>Sitetact Analytics</span>
             </div>
             <div style={{
               flex: 1, background: "var(--surface)", borderRadius: 7,

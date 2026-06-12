@@ -39,7 +39,7 @@ export default function Navbar() {
     }}>
       <a href="#" style={{ textDecoration: "none" }}>
         <span className="display" style={{ fontSize: 20, fontWeight: 900, color: "var(--ink)", letterSpacing: "-0.04em" }}>
-          Our<span style={{ color: "var(--brass)" }}>Brio</span>
+          Site<span style={{ color: "var(--brass)" }}>tact</span>
         </span>
       </a>
 

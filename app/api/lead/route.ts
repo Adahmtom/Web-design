@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 
 // Where leads are delivered. Set these in your environment (e.g. Vercel project env):
 //   RESEND_API_KEY   – from https://resend.com/api-keys
-//   LEAD_TO_EMAIL    – inbox that should receive leads (defaults to info@ourbrio.com)
+//   LEAD_TO_EMAIL    – inbox that should receive leads (defaults to info@sitetact.com)
 //   LEAD_FROM_EMAIL  – verified Resend sender (defaults to Resend's test sender)
-const TO = process.env.LEAD_TO_EMAIL ?? "info@ourbrio.com";
-const FROM = process.env.LEAD_FROM_EMAIL ?? "OurBrio <onboarding@resend.dev>";
-const SOURCE = "ourbrio-web";
+const TO = process.env.LEAD_TO_EMAIL ?? "info@sitetact.com";
+const FROM = process.env.LEAD_FROM_EMAIL ?? "Sitetact <onboarding@resend.dev>";
+const SOURCE = "sitetact-web";
 
 function isEmail(v: unknown): v is string {
   return typeof v === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
@@ -68,13 +68,16 @@ export async function POST(request: Request) {
     });
 
     if (!res.ok) {
+      // Never block the visitor on a delivery problem (e.g. a sending domain
+      // not yet verified in Resend). The lead is logged server-side; the form
+      // still confirms success.
       const detail = await res.text();
-      console.error(`[lead:${SOURCE}] Resend error ${res.status}: ${detail}`);
-      return NextResponse.json({ ok: false, error: "Delivery failed" }, { status: 502 });
+      console.error(`[lead:${SOURCE}] Resend error ${res.status}: ${detail}\n${lines.join("\n")}`);
+      return NextResponse.json({ ok: true, delivered: false });
     }
     return NextResponse.json({ ok: true, delivered: true });
   } catch (err) {
-    console.error(`[lead:${SOURCE}] Delivery exception`, err);
-    return NextResponse.json({ ok: false, error: "Delivery failed" }, { status: 502 });
+    console.error(`[lead:${SOURCE}] Delivery exception`, err, `\n${lines.join("\n")}`);
+    return NextResponse.json({ ok: true, delivered: false });
   }
 }

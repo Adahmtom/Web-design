@@ -31,7 +31,7 @@ export default function Waitlist() {
       track("lead_submitted", { goal: form.goal });
       setSubmitted(true);
     } catch {
-      setError("Something went wrong. Please try again or email info@ourbrio.com.");
+      setError("Something went wrong. Please try again or email info@sitetact.com.");
     } finally {
       setLoading(false);
     }

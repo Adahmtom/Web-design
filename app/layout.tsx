@@ -7,23 +7,23 @@ import { cn } from "@/lib/utils";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 // Update to the production domain before launch (or set NEXT_PUBLIC_SITE_URL).
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ourbrio.com";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitetact.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "OurBrio — Custom Website Design & Development Agency",
-    template: "%s · OurBrio",
+    default: "Sitetact — Custom Website Design & Development Agency",
+    template: "%s · Sitetact",
   },
   description:
-    "Custom websites that convert. OurBrio designs and builds high-performance, conversion-focused sites from scratch — no templates, live in 2–4 weeks.",
+    "Custom websites that convert. Sitetact designs and builds high-performance, conversion-focused sites from scratch — no templates, live in 2–4 weeks.",
   keywords: [
     "website design agency", "custom web development", "conversion-focused websites",
-    "Next.js development", "small business website", "web design Canada", "OurBrio",
+    "Next.js development", "small business website", "web design Canada", "Sitetact",
   ],
-  authors: [{ name: "OurBrio Agency" }],
-  creator: "OurBrio Agency",
-  publisher: "OurBrio Agency",
+  authors: [{ name: "Sitetact Agency" }],
+  creator: "Sitetact Agency",
+  publisher: "Sitetact Agency",
   alternates: { canonical: "/" },
   robots: {
     index: true, follow: true,
@@ -33,15 +33,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     url: SITE,
-    siteName: "OurBrio",
-    title: "OurBrio — Custom Website Design & Development Agency",
+    siteName: "Sitetact",
+    title: "Sitetact — Custom Website Design & Development Agency",
     description:
-      "94% of first impressions are design-related. OurBrio builds custom, conversion-focused websites from scratch — live in 2–4 weeks.",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "OurBrio — Custom Website Design & Development" }],
+      "94% of first impressions are design-related. Sitetact builds custom, conversion-focused websites from scratch — live in 2–4 weeks.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Sitetact — Custom Website Design & Development" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "OurBrio — Custom Website Design & Development Agency",
+    title: "Sitetact — Custom Website Design & Development Agency",
     description: "Custom, conversion-focused websites built from scratch. Live in 2–4 weeks.",
     images: ["/opengraph-image"],
   },
@@ -57,11 +57,11 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "OurBrio",
+  name: "Sitetact",
   description:
     "Custom website design and development agency building conversion-focused sites from scratch.",
   url: SITE,
-  email: "info@ourbrio.com",
+  email: "info@sitetact.com",
   areaServed: ["CA", "US"],
   serviceType: ["Website Design", "Web Development", "Conversion Optimization"],
   address: { "@type": "PostalAddress", addressCountry: "CA", addressRegion: "Edmonton · Calgary · Toronto" },

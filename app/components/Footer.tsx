@@ -9,7 +9,7 @@ export default function Footer() {
 
   const contact = [
     { label: "Start a project", href: "#waitlist" },
-    { label: "info@ourbrio.com", href: "mailto:info@ourbrio.com" },
+    { label: "info@sitetact.com", href: "mailto:info@sitetact.com" },
     { label: "Edmonton & Toronto", href: "#" },
   ];
 
@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <a href="#" style={{ textDecoration: "none", display: "inline-block", marginBottom: 20 }}>
               <span className="display" style={{ fontSize: 24, fontWeight: 900, color: "var(--cream)", letterSpacing: "-0.04em" }}>
-                Our<span style={{ color: "var(--brass)" }}>Brio</span>
+                Site<span style={{ color: "var(--brass)" }}>tact</span>
               </span>
             </a>
             <p style={{
@@ -117,7 +117,7 @@ export default function Footer() {
           justifyContent: "space-between", flexWrap: "wrap", gap: 16,
         }}>
           <p style={{ fontSize: 12, color: "rgba(245,240,232,0.3)" }}>
-            © 2025 OurBrio Agency · Edmonton & Toronto
+            © 2025 Sitetact Agency · Edmonton & Toronto
           </p>
           <a href="/ai-automation" style={{
             fontSize: 12, color: "var(--brass)", textDecoration: "none",

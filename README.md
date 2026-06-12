@@ -1,6 +1,6 @@
-# OurBrio — Web Design Landing Page
+# Sitetact — Web Design Landing Page
 
-Marketing site for OurBrio's website design & development agency. Built with Next.js 16 (App Router) and TypeScript. Custom, conversion-focused websites built from scratch — no templates.
+Marketing site for Sitetact's website design & development agency. Built with Next.js 16 (App Router) and TypeScript. Custom, conversion-focused websites built from scratch — no templates.
 
 ## Stack
 
@@ -26,8 +26,8 @@ Set these in `.env.local` for local dev, and in your Vercel project for producti
 | Variable | Purpose |
 |----------|---------|
 | `RESEND_API_KEY` | Resend API key ([resend.com](https://resend.com) → API Keys). Enables lead emails. |
-| `LEAD_TO_EMAIL` | Inbox that receives leads. Defaults to `info@ourbrio.com`. |
-| `LEAD_FROM_EMAIL` | Verified Resend sender, e.g. `OurBrio <leads@ourbrio.com>`. |
+| `LEAD_TO_EMAIL` | Inbox that receives leads. Defaults to `info@sitetact.com`. |
+| `LEAD_FROM_EMAIL` | Verified Resend sender, e.g. `Sitetact <leads@sitetact.com>`. |
 | `NEXT_PUBLIC_SITE_URL` | Production URL. Drives canonical, OG, robots, and sitemap. |
 
 ## How it works
