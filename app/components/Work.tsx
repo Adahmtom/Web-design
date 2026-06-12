@@ -65,6 +65,18 @@ const projects = [
     accent: "#B57BB0",
     bg: "#190F1E",
   },
+  {
+    client: "One on One Health",
+    domain: "oneononehealth.us",
+    url: "https://oneononehealth.us/",
+    type: "Health & Wellness",
+    headline: "A warm, trust-building site for a nutrition coach",
+    result: "Built to book free consultations",
+    tags: ["Custom Design", "Brand Identity", "Booking Flow"],
+    img: "/work/oneononehealth.jpg",
+    accent: "#8FB93B",
+    bg: "#141C09",
+  },
 ];
 
 type Project = typeof projects[0];
