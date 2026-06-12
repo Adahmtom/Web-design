@@ -83,7 +83,20 @@ export default function Hero() {
         }}>
           Your website<br />
           should be your<br />
-          <em style={{ color: "var(--brass)", fontStyle: "italic" }}>best salesperson.</em>
+          <span style={{ position: "relative", display: "inline-block" }}>
+            <em style={{ color: "var(--brass)", fontStyle: "italic" }}>best salesperson.</em>
+            <motion.span
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.7, delay: 1.05, ease: [0.22, 1, 0.36, 1] as any }}
+              style={{
+                position: "absolute", left: 0, right: 0, bottom: "-0.04em",
+                height: "0.08em", minHeight: 3, background: "var(--brass)",
+                transformOrigin: "left", borderRadius: 4,
+              }}
+            />
+          </span>
         </motion.h1>
 
         <motion.p {...up(0.3)} style={{
