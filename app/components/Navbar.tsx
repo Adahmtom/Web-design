@@ -44,7 +44,7 @@ export default function Navbar() {
       </a>
 
       {/* Desktop links */}
-      <ul style={{ display: "flex", gap: 32, listStyle: "none", alignItems: "center" }} className="hidden-mobile">
+      <ul style={{ gap: 32, listStyle: "none", alignItems: "center" }} className="hidden-mobile">
         {links.map(l => (
           <li key={l.label}>
             <a href={l.href} style={{
@@ -75,7 +75,7 @@ export default function Navbar() {
         aria-label={open ? "Close menu" : "Open menu"}
         style={{
           background: "none", border: "none", cursor: "pointer", color: "var(--ink)",
-          display: "flex", alignItems: "center", justifyContent: "center",
+          alignItems: "center", justifyContent: "center",
           minWidth: 44, minHeight: 44, borderRadius: 8, transition: "background 0.15s",
         }}
         className="show-mobile"

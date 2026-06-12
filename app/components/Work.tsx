@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -10,199 +10,174 @@ const projects = [
     domain: "fulcrum-point.vercel.app",
     url: "https://fulcrum-point.vercel.app/",
     type: "Private Equity",
-    headline: "Institutional credibility for a high-stakes audience",
     result: "Editorial design built to earn investor trust",
-    tags: ["Brand Identity", "Custom Design", "Responsive"],
+    tags: ["Brand Identity", "Custom Design"],
     img: "/work/fulcrumpoint.jpg",
-    accent: "#E2641F",
-    bg: "#11141C",
+    accent: "#D2540F",
   },
   {
     client: "CZAR Studio",
     domain: "czar-studio.vercel.app",
     url: "https://czar-studio.vercel.app/",
     type: "Event Photography",
-    headline: "A gallery-first site that lets the work speak",
-    result: "Cinematic hero built around the booking CTA",
-    tags: ["Custom Design", "Gallery", "Booking Flow"],
+    result: "Cinematic, gallery-first booking experience",
+    tags: ["Custom Design", "Gallery"],
     img: "/work/czar.jpg",
-    accent: "#C9A24B",
-    bg: "#0A0A0A",
+    accent: "#B7902F",
   },
   {
     client: "Ecom2Millions Academy",
     domain: "ecom2millions.com",
     url: "https://www.ecom2millions.com/",
     type: "Online Education",
-    headline: "A bold brand for a growing e-commerce academy",
-    result: "High-energy hero that drives enrollments",
-    tags: ["Brand Identity", "Custom Design", "Membership"],
+    result: "High-energy brand that drives enrollments",
+    tags: ["Brand Identity", "Membership"],
     img: "/work/ecom2millions.jpg",
-    accent: "#16A07A",
-    bg: "#06231C",
+    accent: "#0F9070",
   },
   {
     client: "IDEA eLearning",
     domain: "ideaelearning.learnworlds.com",
     url: "https://ideaelearning.learnworlds.com/home",
-    type: "Online Learning Platform",
-    headline: "A polished platform for professional courses",
-    result: "Editorial learning experience for 12,000+ learners",
-    tags: ["Custom Design", "Course Platform", "Responsive"],
+    type: "Learning Platform",
+    result: "Polished course experience for 12,000+ learners",
+    tags: ["Custom Design", "Course Platform"],
     img: "/work/ideaelearning.jpg",
-    accent: "#7C5CCB",
-    bg: "#16122A",
+    accent: "#6D4FC2",
   },
   {
     client: "Saint Tracy",
     domain: "sainttracy.com",
     url: "https://sainttracy.com/",
     type: "Luxury E-Commerce",
-    headline: "A premium storefront for fine jewelry",
-    result: "Conversion-focused store for diamond & gold rings",
-    tags: ["E-Commerce", "Brand Identity", "Custom Design"],
+    result: "Premium storefront for fine jewelry",
+    tags: ["E-Commerce", "Brand Identity"],
     img: "/work/sainttracy.jpg",
-    accent: "#B57BB0",
-    bg: "#190F1E",
+    accent: "#A85FA0",
   },
   {
     client: "One on One Health",
     domain: "oneononehealth.us",
     url: "https://oneononehealth.us/",
     type: "Health & Wellness",
-    headline: "A warm, trust-building site for a nutrition coach",
-    result: "Built to book free consultations",
-    tags: ["Custom Design", "Brand Identity", "Booking Flow"],
+    result: "Trust-building site built to book consultations",
+    tags: ["Custom Design", "Booking Flow"],
     img: "/work/oneononehealth.jpg",
-    accent: "#8FB93B",
-    bg: "#141C09",
+    accent: "#6F9A1E",
   },
 ];
 
 type Project = typeof projects[0];
 
-/* Real website hero screenshot inside a browser frame. */
-function HeroShot({ p }: { p: Project }) {
-  return (
-    <div style={{
-      borderRadius: 10, overflow: "hidden",
-      border: `1px solid ${p.accent}33`,
-      boxShadow: "0 30px 60px rgba(0,0,0,0.42)",
-      background: "#000",
-    }}>
-      {/* Browser chrome */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: 8,
-        padding: "9px 12px", background: "rgba(255,255,255,0.05)",
-        borderBottom: `1px solid ${p.accent}1f`,
-      }}>
-        <div style={{ display: "flex", gap: 5 }}>
-          {["#FF5F57", "#FEBC2E", "#28C840"].map(c => (
-            <div key={c} style={{ width: 8, height: 8, borderRadius: "50%", background: c, opacity: 0.85 }} />
-          ))}
-        </div>
-        <div style={{
-          flex: 1, height: 16, borderRadius: 4,
-          background: "rgba(255,255,255,0.06)",
-          fontSize: 9, color: "rgba(255,255,255,0.4)",
-          display: "flex", alignItems: "center", padding: "0 8px",
-          fontFamily: "monospace",
-        }}>{p.domain}</div>
-      </div>
-
-      {/* Live hero screenshot */}
-      <div style={{ position: "relative", width: "100%", aspectRatio: "1360 / 760", overflow: "hidden" }}>
-        <Image
-          src={p.img}
-          alt={`${p.client} website hero`}
-          fill
-          sizes="(max-width: 900px) 100vw, 46vw"
-          style={{ objectFit: "cover", objectPosition: "top center" }}
-        />
-      </div>
-    </div>
-  );
-}
-
 function ProjectCard({ p, index }: { p: Project; index: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const [hover, setHover] = useState(false);
 
   return (
-    <motion.div
+    <motion.a
       ref={ref}
-      initial={{ opacity: 0, y: 32 }}
+      href={p.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 34 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as any }}
+      transition={{ duration: 0.6, delay: (index % 3) * 0.12, ease: [0.22, 1, 0.36, 1] as any }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      whileHover={{ y: -8 }}
       style={{
-        background: p.bg,
-        borderRadius: 14,
-        padding: "48px 48px",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 48,
-        alignItems: "center",
-        transition: "transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s",
-        cursor: "default",
+        display: "flex", flexDirection: "column",
+        background: "#fff", borderRadius: 16, overflow: "hidden",
+        border: `1px solid ${hover ? p.accent + "66" : "var(--border)"}`,
+        boxShadow: hover ? `0 30px 70px ${p.accent}1f` : "0 1px 2px rgba(13,13,13,0.04)",
+        textDecoration: "none", cursor: "pointer",
+        transition: "border-color 0.3s, box-shadow 0.3s",
       }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 28px 70px rgba(0,0,0,0.34)";
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-      }}
-      className="work-card"
     >
-      <div>
+      {/* Screenshot in a browser frame */}
+      <div style={{ background: "#0A0A0A" }}>
+        {/* chrome */}
         <div style={{
-          fontSize: 11, fontWeight: 700, letterSpacing: "0.15em",
-          textTransform: "uppercase", color: p.accent, marginBottom: 18,
+          display: "flex", alignItems: "center", gap: 8,
+          padding: "9px 12px", background: "#16171A",
+        }}>
+          <div style={{ display: "flex", gap: 5 }}>
+            {["#FF5F57", "#FEBC2E", "#28C840"].map(c => (
+              <div key={c} style={{ width: 8, height: 8, borderRadius: "50%", background: c, opacity: 0.9 }} />
+            ))}
+          </div>
+          <div style={{
+            flex: 1, height: 16, borderRadius: 4,
+            background: "rgba(255,255,255,0.07)",
+            fontSize: 9, color: "rgba(255,255,255,0.45)",
+            display: "flex", alignItems: "center", padding: "0 8px",
+            fontFamily: "monospace", overflow: "hidden", whiteSpace: "nowrap",
+          }}>{p.domain}</div>
+        </div>
+
+        {/* image */}
+        <div style={{ position: "relative", width: "100%", aspectRatio: "1360 / 850", overflow: "hidden" }}>
+          <Image
+            src={p.img}
+            alt={`${p.client} website hero`}
+            fill
+            sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            style={{
+              objectFit: "cover", objectPosition: "top center",
+              transform: hover ? "scale(1.05)" : "scale(1)",
+              transition: "transform 0.6s cubic-bezier(0.22,1,0.36,1)",
+            }}
+          />
+          {/* hover overlay */}
+          <div style={{
+            position: "absolute", inset: 0,
+            background: `linear-gradient(to top, ${p.accent}cc, transparent 55%)`,
+            opacity: hover ? 1 : 0, transition: "opacity 0.35s",
+            display: "flex", alignItems: "flex-end", justifyContent: "flex-end",
+            padding: 14,
+          }}>
+            <span style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              background: "#fff", color: "var(--ink)",
+              fontSize: 12, fontWeight: 700, padding: "8px 14px", borderRadius: 100,
+              transform: hover ? "translateY(0)" : "translateY(8px)",
+              transition: "transform 0.35s",
+            }}>
+              Visit live site <ArrowUpRight size={14} />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Info */}
+      <div style={{ padding: "22px 22px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
+        <div style={{
+          fontSize: 10, fontWeight: 700, letterSpacing: "0.14em",
+          textTransform: "uppercase", color: p.accent, marginBottom: 10,
         }}>{p.type}</div>
 
         <h3 className="display" style={{
-          fontSize: "clamp(22px, 2.5vw, 30px)", fontWeight: 700,
-          lineHeight: 1.2, color: "#fff", marginBottom: 16, letterSpacing: "-0.02em",
-        }}>{p.headline}</h3>
+          fontSize: 20, fontWeight: 800, color: "var(--ink)",
+          letterSpacing: "-0.02em", marginBottom: 8, lineHeight: 1.2,
+        }}>{p.client}</h3>
 
-        <div style={{
-          fontSize: 13, color: `${p.accent}dd`, marginBottom: 24,
-          fontWeight: 500, fontStyle: "italic", letterSpacing: "0.01em",
-        }}>{p.result}</div>
+        <p style={{
+          fontSize: 13.5, color: "var(--muted)", lineHeight: 1.6,
+          marginBottom: 18, flex: 1,
+        }}>{p.result}</p>
 
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 26 }}>
+        <div style={{ display: "flex", gap: 7, flexWrap: "wrap" }}>
           {p.tags.map(t => (
             <span key={t} style={{
-              fontSize: 11, padding: "4px 11px",
-              border: `1px solid ${p.accent}44`,
-              borderRadius: 100, color: p.accent, fontWeight: 600,
+              fontSize: 10.5, fontWeight: 600, padding: "4px 10px",
+              border: `1px solid ${p.accent}33`, background: `${p.accent}0d`,
+              borderRadius: 100, color: p.accent,
             }}>{t}</span>
           ))}
         </div>
-
-        <a href={p.url} target="_blank" rel="noopener noreferrer" style={{
-          display: "inline-flex", alignItems: "center", gap: 6,
-          fontSize: 13, color: p.accent, fontWeight: 700, cursor: "pointer",
-          textDecoration: "none", transition: "gap 0.2s",
-        }}
-          onMouseEnter={e => (e.currentTarget.style.gap = "10px")}
-          onMouseLeave={e => (e.currentTarget.style.gap = "6px")}
-        >
-          Visit live site <ArrowUpRight size={15} />
-        </a>
       </div>
-
-      {/* Website hero screenshot */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96, y: 16 }}
-        animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, delay: index * 0.1 + 0.15, ease: [0.22, 1, 0.36, 1] as any }}
-        className="work-preview"
-      >
-        <HeroShot p={p} />
-      </motion.div>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -211,26 +186,38 @@ export default function Work() {
   const titleInView = useInView(titleRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="work" style={{ padding: "128px 80px", background: "var(--surface)" }}>
+    <section id="work" style={{ padding: "128px clamp(20px, 5vw, 80px)", background: "var(--surface)" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <motion.div
           ref={titleRef}
           initial={{ opacity: 0, y: 24 }}
           animate={titleInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as any }}
-          style={{ marginBottom: 64 }}
+          style={{
+            display: "flex", alignItems: "flex-end", justifyContent: "space-between",
+            marginBottom: 56, flexWrap: "wrap", gap: 20,
+          }}
         >
-          <div style={{
-            fontSize: 11, fontWeight: 700, letterSpacing: "0.18em",
-            textTransform: "uppercase", color: "var(--brass)", marginBottom: 18,
-          }}>Selected work</div>
-          <h2 className="display" style={{
-            fontSize: "clamp(34px, 4vw, 54px)", fontWeight: 900,
-            lineHeight: 1.08, letterSpacing: "-0.03em", color: "var(--ink)",
-          }}>Proof is in the pixels.</h2>
+          <div>
+            <div style={{
+              fontSize: 11, fontWeight: 700, letterSpacing: "0.18em",
+              textTransform: "uppercase", color: "var(--brass)", marginBottom: 18,
+            }}>Selected work</div>
+            <h2 className="display" style={{
+              fontSize: "clamp(34px, 4vw, 54px)", fontWeight: 900,
+              lineHeight: 1.08, letterSpacing: "-0.03em", color: "var(--ink)",
+            }}>Proof is in the pixels.</h2>
+          </div>
+          <p style={{ maxWidth: 300, fontSize: 15, color: "var(--muted)", lineHeight: 1.75 }}>
+            Real sites, live in production — across finance, e-commerce, education, and wellness.
+          </p>
         </motion.div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(340px, 100%), 1fr))",
+          gap: 24,
+        }} className="work-grid">
           {projects.map((p, i) => (
             <ProjectCard key={p.client} p={p} index={i} />
           ))}
