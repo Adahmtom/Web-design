@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OurBrio — Web Design Landing Page
 
-## Getting Started
+Marketing site for OurBrio's website design & development agency. Built with Next.js 16 (App Router) and TypeScript. Custom, conversion-focused websites built from scratch — no templates.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) + **React 19** + **TypeScript**
+- **framer-motion** for entrance/scroll animations
+- **lucide-react** for icons
+- **Resend** for lead-capture email delivery
+- **@vercel/analytics** for traffic + conversion tracking
+- Inline-styled components with CSS custom properties (editorial `--ink` / `--cream` / `--brass` theme)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in the values below
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Set these in `.env.local` for local dev, and in your Vercel project for production. Leads still work without a Resend key (logged server-side), but won't be emailed until it's set.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Resend API key ([resend.com](https://resend.com) → API Keys). Enables lead emails. |
+| `LEAD_TO_EMAIL` | Inbox that receives leads. Defaults to `info@ourbrio.com`. |
+| `LEAD_FROM_EMAIL` | Verified Resend sender, e.g. `OurBrio <leads@ourbrio.com>`. |
+| `NEXT_PUBLIC_SITE_URL` | Production URL. Drives canonical, OG, robots, and sitemap. |
 
-## Learn More
+## How it works
 
-To learn more about Next.js, take a look at the following resources:
+- **Sections:** Hero (brass particle-field background) → services → work → process → pricing → FAQ → lead form → footer.
+- **Lead capture:** the form POSTs to `app/api/lead/route.ts`, which validates input, drops bot submissions via a honeypot field, and emails the lead through Resend. A successful submit fires a `lead_submitted` analytics event.
+- **SEO:** per-route metadata, dynamic OG image (`app/opengraph-image.tsx`), `ProfessionalService` + `FAQPage` JSON-LD, `robots.ts`, and `sitemap.ts`.
+- **Performance:** the canvas animation respects `prefers-reduced-motion` and pauses via `IntersectionObserver` when scrolled offscreen.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Import the repo at [vercel.com/new](https://vercel.com/new) (auto-detects Next.js), add the environment variables above, and deploy.
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev     # local dev server
+npm run build   # production build
+npm run start   # serve the production build
+```
