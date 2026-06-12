@@ -77,8 +77,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1 {...up(0.2)} className="display" style={{
-          fontSize: "clamp(48px, 5.8vw, 88px)",
-          fontWeight: 900, lineHeight: 1.0,
+          fontSize: "clamp(29px, 4.2vw, 72px)",
+          fontWeight: 900, lineHeight: 1.04,
           letterSpacing: "-0.04em", color: "var(--ink)", marginBottom: 28,
         }}>
           Your website<br />
