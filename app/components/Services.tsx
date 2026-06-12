@@ -12,29 +12,23 @@ const services = [
   {
     num: "02",
     title: "Custom Design",
-    desc: "No Figma templates. No borrowed aesthetics. Every layout, color, and typeface decision is made for your business and nobody else's.",
+    desc: "No templates. No borrowed aesthetics. Every layout, color, and typeface decision is made for your business and nobody else's.",
     tags: ["UI/UX Design", "Motion Design", "Responsive Layouts"],
   },
   {
     num: "03",
-    title: "Next.js Development",
-    desc: "We build in Next.js — enterprise-grade performance, server components, and edge rendering. Your site loads in under 1s, anywhere in the world.",
-    tags: ["Next.js", "TypeScript", "Supabase", "Vercel"],
-  },
-  {
-    num: "04",
     title: "CMS & Admin",
     desc: "Update your own content without touching code. We wire up a clean admin dashboard so you're never dependent on a developer for day-to-day changes.",
     tags: ["Content Management", "Admin Dashboard", "Role Access"],
   },
   {
-    num: "05",
+    num: "04",
     title: "SEO & Performance",
     desc: "We don't hand you a slow site and suggest you hire an SEO agency later. Core Web Vitals, structured data, and local SEO are baked in from day one.",
     tags: ["Core Web Vitals", "Local SEO", "Analytics Setup"],
   },
   {
-    num: "06",
+    num: "05",
     title: "Launch & Support",
     desc: "30-day post-launch support included. We monitor, fix, and iterate. Your success after go-live is part of the deal, not an upsell.",
     tags: ["30-Day Support", "Monitoring", "Iteration"],
@@ -135,7 +129,7 @@ export default function Services() {
             maxWidth: 340, fontSize: 15, color: "rgba(245,240,232,0.55)",
             lineHeight: 1.8, fontWeight: 400,
           }}>
-            Six disciplines. One team. One invoice. We handle every layer so your
+            Five disciplines. One team. One invoice. We handle every layer so your
             site is ready to perform from day one.
           </p>
         </motion.div>
